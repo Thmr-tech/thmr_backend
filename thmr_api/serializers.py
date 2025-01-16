@@ -4,8 +4,6 @@ from .models import CustomUser
 
 
 class UserCreateSerializer(UserCreatePasswordRetypeSerializer):
-    print('test')
-
     class Meta(UserCreatePasswordRetypeSerializer.Meta):
         model = CustomUser
         fields = [
@@ -14,10 +12,6 @@ class UserCreateSerializer(UserCreatePasswordRetypeSerializer):
         ]
 
     def validate(self, attrs):
-        # Check for a specific condition in the request
-        print("Password:", attrs.get("password"))
-        print("Re-Password:", attrs.get("re_password"))
-        print('here', self.context['request'].data.get('signup_type'))
         if self.context['request'].data.get('signup_type') == 'manager':
             if not attrs.get('family_funds_box_name'):
                 raise serializers.ValidationError({

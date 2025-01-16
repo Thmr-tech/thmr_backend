@@ -183,9 +183,9 @@ DJOSER = {
     'SERIALIZERS': {
         'user_create': 'thmr_api.serializers.UserCreateSerializer',
     },
-    'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
-    'ACTIVATION_URL': 'activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL': True, 
-    'DOMAIN': DOMAIN,
-    'SITE_NAME': SITE_NAME
+    # 'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
+    # 'ACTIVATION_URL': 'activate/{uid}/{token}',
+    # 'SEND_ACTIVATION_EMAIL': True, 
+    # 'DOMAIN': DOMAIN,
+    # 'SITE_NAME': SITE_NAME
 }
