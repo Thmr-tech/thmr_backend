@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 ENVIRONMENT = os.getenv('DJANGO_ENVIRONMENT', 'development')
 
 if ENVIRONMENT == 'production':
-    keys_file = str(BASE_DIR)+"/keys.production.json"
+    keys_file = str(BASE_DIR)+"/keys.json"
 else:
     keys_file = str(BASE_DIR)+"/keys.json"
 
