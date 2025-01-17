@@ -178,7 +178,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DOMAIN = getKey("EMAIL_DOMAIN", '')  # Your frontend domain without http/https
-SITE_NAME = 'Thmr'  # The name that appears in the email
+SITE_NAME = 'ثمر'  # The name that appears in the email
 
 DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',

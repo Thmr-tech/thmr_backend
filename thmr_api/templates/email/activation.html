@@ -27,11 +27,12 @@ site_name }}.{% endblocktrans %}
 </head>
 
 <body
-    style="font-family: Arial, sans-serif; background-color: #f4f4f7; color: #333333; padding: 20px; margin: 0; direction: rtl; text-align: right;">
+    style="font-family: Arial, sans-serif; background-color: #f4f4f7; color: #333333; padding: 20px; margin: 0; direction: rtl; text-align: center;">
     <table width="100%"
         style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 8px; overflow: hidden;">
         <tr>
-            <td style="padding: 20px; text-align: center; background-color: #4A90E2; color: white;">
+            <td style="padding: 20px; text-align: center; background-color: #008291; color: white;">
+                <img src="https://thmr.sa/static/media/logo.f026da22c68203db3cfd.png" style="width: 120px;"/>
                 <h2>{{ site_name }}</h2>
             </td>
         </tr>
@@ -44,13 +45,13 @@ site_name }}.{% endblocktrans %}
                 <p>{% blocktrans %}لتفعيل حسابك، يرجى الضغط على الرابط أدناه:{% endblocktrans %}</p>
                 <p style="text-align: center;">
                     <a href="{{ protocol }}://{{ domain }}/{{ url|safe }}"
-                        style="display: inline-block; padding: 12px 20px; font-size: 16px; color: white; background-color: #4A90E2; text-decoration: none; border-radius: 5px;">
+                        style="display: inline-block; padding: 12px 20px; font-size: 16px; color: white; background-color: #008291; text-decoration: none; border-radius: 5px;">
                         {% blocktrans %}تفعيل الحساب{% endblocktrans %}
                     </a>
                 </p>
 
                 <p>{% blocktrans %}أو قم بنسخ الرابط التالي ولصقه في المتصفح:{% endblocktrans %}</p>
-                <p style="word-wrap: break-word; color: #4A90E2;">
+                <p style="word-wrap: break-word; color: #008291;">
                     {{ protocol }}://{{ domain }}/{{ url|safe }}
                 </p>
 
