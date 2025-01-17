@@ -98,7 +98,7 @@ ROOT_URLCONF = 'thmr.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'thmr_api/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -178,15 +178,24 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DOMAIN = getKey("EMAIL_DOMAIN", '')  # Your frontend domain without http/https
-SITE_NAME = 'ثمر'  # The name that appears in the email
+SITE_NAME = 'Thmr'  # The name that appears in the email
 
 DJOSER = {
+    'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
+    'ACTIVATION_URL': 'activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': True, 
+    'DOMAIN': DOMAIN,
+    'SITE_NAME': SITE_NAME, 
     'SERIALIZERS': {
         'user_create': 'thmr_api.serializers.UserCreateSerializer',
-    },
-    # 'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
-    # 'ACTIVATION_URL': 'activate/{uid}/{token}',
-    # 'SEND_ACTIVATION_EMAIL': True, 
-    # 'DOMAIN': DOMAIN,
-    # 'SITE_NAME': SITE_NAME
+    }
 }
+
+
+EMAIL_BACKEND = getKey("EMAIL_BACKEND", '')
+EMAIL_HOST = getKey("EMAIL_HOST", '')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = getKey("EMAIL_HOST_USER", '')
+EMAIL_HOST_PASSWORD = getKey("EMAIL_HOST_PASSWORD", '')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
