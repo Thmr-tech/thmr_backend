@@ -11,24 +11,16 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Determine the environment and select the appropriate keys file
-ENVIRONMENT = os.getenv('DJANGO_ENVIRONMENT', 'development')
-
-if ENVIRONMENT == 'production':
-    keys_file = str(BASE_DIR)+"/keys.json"
-else:
-    keys_file = str(BASE_DIR)+"/keys.json"
+keys_file = str(BASE_DIR)+"/keys.json"
 
 # Open the JSON file and read its contents
 with open(keys_file) as f:
     project_keys = json.loads(f.read()) # Converts JSON string to dictionary
-
 
 # Function to retrieve keys
 def getKey(setting, default=None):
