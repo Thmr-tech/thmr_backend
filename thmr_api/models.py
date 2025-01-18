@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import BaseUserManager
 from django.db import models
 from django.core.validators import RegexValidator
+from django.utils.translation import gettext_lazy as _
 
 
 class CustomUserManager(BaseUserManager):
@@ -22,23 +23,25 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractUser):
-    email = models.EmailField(unique=True)
-    full_name = models.CharField(max_length=255)
+    email = models.EmailField(_("email address"), unique=True)
+    full_name = models.CharField(_("الإسم الرباعي"), max_length=255)
     national_id = models.CharField(
+        _("رقم الهوية"),
         max_length=255,
         unique=True,
         validators=[RegexValidator(
             r'^\d{10}$', 'National ID must be exactly 10 digits.')]
     )
     telephone = models.CharField(
+        _("رقم الهاتف"),
         max_length=255,
         unique=True,
         validators=[RegexValidator(
             r'^\d{10}$', 'Telephone must be exactly 10 digits.')]
     )
-    family_funds_box_number = models.CharField(max_length=255, unique=True)
-    family_funds_box_name = models.CharField(max_length=255, blank=True, null=True)
-    family_funds_regulations = models.FileField(upload_to='regulations/', blank=True, null=True)
+    family_funds_box_number = models.CharField(_("رقم الصندوق"), max_length=255, unique=True)
+    family_funds_box_name = models.CharField(_("اسم الصندوق"), max_length=255, blank=True, null=True)
+    family_funds_regulations = models.FileField(_(" اللائحة الاساسية للصندو"), upload_to='regulations/', blank=True, null=True)
     signup_type = models.CharField(max_length=10)
 
     username = None
