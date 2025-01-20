@@ -1,6 +1,6 @@
 from djoser.serializers import UserCreatePasswordRetypeSerializer
 from rest_framework import serializers
-from .models import CustomUser
+from .models import CustomUser, Contact
 
 
 class UserCreateSerializer(UserCreatePasswordRetypeSerializer):
@@ -23,3 +23,10 @@ class UserCreateSerializer(UserCreatePasswordRetypeSerializer):
                 })
 
         return super().validate(attrs)
+
+
+
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = ['name', 'email', 'message']

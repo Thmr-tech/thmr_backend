@@ -1,6 +1,7 @@
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from rest_framework.generics import ListCreateAPIView
+from .models import Contact
+from .serializers import ContactSerializer
 
-@api_view(['GET'])
-def hello_view(request):
-    return Response({"message": "Hello"})
+class ContactListCreateView(ListCreateAPIView):
+    queryset = Contact.objects.all()
+    serializer_class = ContactSerializer
